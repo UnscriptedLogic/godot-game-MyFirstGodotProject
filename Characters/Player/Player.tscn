@@ -1,78 +1,78 @@
 [gd_scene load_steps=28 format=3 uid="uid://dbxfv8tan8uue"]
 
-[ext_resource type="Script" path="res://Player/Player.cs" id="1_eabmg"]
-[ext_resource type="Texture2D" uid="uid://clhmdmryhiblh" path="res://Assets/Sunny-land-assets-files/Graphical Assets/spritesheets/player.png" id="1_n14bf"]
+[ext_resource type="Script" path="res://Characters/Player/Player.cs" id="1_c5db7"]
+[ext_resource type="Texture2D" uid="uid://clhmdmryhiblh" path="res://Assets/Sunny-land-assets-files/Graphical Assets/spritesheets/player.png" id="2_7s5ak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8obx"]
 radius = 9.0
 height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktw7y"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(0, 96, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krgsl"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(33, 96, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xr58m"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(66, 96, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rnyu"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(0, 128, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqese"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(33, 128, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dv1uu"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(0, 0, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kiahl"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(33, 0, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrlg3"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(66, 0, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8o5n"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(99, 0, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpb5q"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(0, 160, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vecp8"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(33, 160, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rt27"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(0, 32, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3frb"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(33, 32, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54whk"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(66, 32, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4vmo"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(99, 32, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3cuv"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(132, 32, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0g8dd"]
-atlas = ExtResource("1_n14bf")
+atlas = ExtResource("2_7s5ak")
 region = Rect2(165, 32, 33, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dajp6"]
@@ -154,6 +154,34 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_bycl2"]
+resource_name = "Fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_iju21"]
 resource_name = "Idle"
 length = 0.4
@@ -181,6 +209,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_yekce"]
+resource_name = "Jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_77pf8"]
@@ -227,62 +283,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_yekce"]
-resource_name = "Jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_bycl2"]
-resource_name = "Fall"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwp3e"]
 _data = {
 "Fall": SubResource("Animation_bycl2"),
@@ -293,18 +293,21 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_eabmg")
+script = ExtResource("1_c5db7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_i8obx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dajp6")
-animation = &"Idle"
+animation = &"Jump"
+frame = 1
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+limit_left = 0
+limit_top = 0
 position_smoothing_speed = 15.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
