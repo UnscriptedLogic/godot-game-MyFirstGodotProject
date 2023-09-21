@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://Characters/Player/Player.cs" id="1_c5db7"]
 [ext_resource type="Texture2D" uid="uid://clhmdmryhiblh" path="res://Assets/Sunny-land-assets-files/Graphical Assets/spritesheets/player.png" id="2_7s5ak"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8obx"]
-radius = 9.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlaki"]
+size = Vector2(15, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktw7y"]
 atlas = ExtResource("2_7s5ak")
@@ -296,12 +295,12 @@ _data = {
 script = ExtResource("1_c5db7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_i8obx")
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_jlaki")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dajp6")
-animation = &"Jump"
-frame = 1
+animation = &"Idle"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

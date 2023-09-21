@@ -97,6 +97,39 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tg83p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw3ux")
 }],
 "loop": true,
 "name": &"Idle",
@@ -118,7 +151,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xoqv"]
-radius = 134.015
+radius = 95.0053
 
 [node name="Frog" type="CharacterBody2D"]
 script = ExtResource("1_j1ceh")
@@ -131,12 +164,16 @@ shape = SubResource("RectangleShape2D_hhi2v")
 position = Vector2(2, -11)
 sprite_frames = SubResource("SpriteFrames_vaxmm")
 animation = &"Idle"
-frame_progress = 0.425217
+frame_progress = 0.803978
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_3xoqv")
+
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="OnBodyExit"]
