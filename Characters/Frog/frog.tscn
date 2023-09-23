@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c71shtpyyo7sb"]
+[gd_scene load_steps=22 format=3 uid="uid://c71shtpyyo7sb"]
 
 [ext_resource type="Script" path="res://Characters/Frog/Frog.cs" id="1_j1ceh"]
 [ext_resource type="Texture2D" uid="uid://bqib10l5t1nxa" path="res://Assets/Sunny-land-assets-files/Graphical Assets/spritesheets/enemy-deadth.png" id="2_d03qu"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2oh6dxaxf2wa" path="res://Assets/Sunny-land-assets-files/Graphical Assets/spritesheets/frog-jump.png" id="4_6issb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhi2v"]
-size = Vector2(19, 18)
+size = Vector2(23, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwi1x"]
 atlas = ExtResource("2_d03qu")
@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wwu12")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 10.0
 }, {
@@ -151,25 +151,35 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xoqv"]
-radius = 95.0053
+radius = 135.004
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qka8"]
+size = Vector2(14, 13)
 
 [node name="Frog" type="CharacterBody2D"]
 script = ExtResource("1_j1ceh")
+OnKillGold = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -10)
+[node name="EntityCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_hhi2v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -11)
 sprite_frames = SubResource("SpriteFrames_vaxmm")
 animation = &"Idle"
-frame_progress = 0.803978
+frame_progress = 0.605955
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_3xoqv")
+
+[node name="KillBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox"]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_5qka8")
 
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -177,3 +187,4 @@ one_shot = true
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="OnBodyExit"]
+[connection signal="body_entered" from="KillBox" to="." method="OnKillBoxEntered"]
